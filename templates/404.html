@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='semantic/semantic.min.css') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+</head>
+<body>
+<br>
+<div class="ui raised padded container segment">
+    <div class="ui two column doubling stackable grid container"> 
+    <div class="column">
+        <p><h1>Not Found</h1><h3>HTTP/404</h3></p>
+    </div>
+    <div class="middle aligned column">
+        <img class="ui fluid image" src="{{url_for('static', filename='404.jpg')}}" />
+    </div>
+  </div>
+</div>
+</body>
+</html>

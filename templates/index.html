@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='semantic/semantic.min.css') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+</head>
+<script>
+	var ajax_token = '{{token['token']}}';
+</script>
+<body>
+	<div class="row">
+		<div class="ui divided items">
+		<div class="item">	
+			<div class="ui left aligned container"> 
+			<h1>Robot web control</h1>
+			</div>
+		</div>
+		<div class="item">
+		<div class="ui two column doubling stackable grid container"> 
+			<div class="column">
+				<div class="ui raised segment">
+				<img class="ui fluid image" src="/stream" class="stream" alt="It seems that no stream is currently running =(. Please check the camera and vlc."></img>
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui raised segment">
+				<div class="ui center aligned grid">
+				<table>
+					<tr>
+						<th></th><th>
+							<button class='ui icon button massive' onclick='ajax_cmd_resp(ajax_token , "f");'><i class="arrow up icon"></i></button>
+						</th><th></th>
+					</tr>
+					<tr>
+						<th>
+							<button class='ui icon button massive' onclick='ajax_cmd_resp(ajax_token , "l");'><i class="arrow left icon"></i></button>
+						</th>
+						<th>
+							<button class='ui red icon button massive' onclick='ajax_cmd_resp(ajax_token , "s");'><i class="stop circle outline icon"></i></button>
+						</th>
+						<th>
+							<button class='ui icon button massive' onclick='ajax_cmd_resp(ajax_token , "r");'><i class="arrow right icon"></i></button><br>
+						</th>
+					</tr>
+					<tr>
+						<th></th><th>
+							<button class='ui icon button massive' onclick='ajax_cmd_resp(ajax_token , "b");'><i class="arrow down icon"></i></button><br>
+						</th><th></th>
+					</tr>
+				</table>
+				<table>
+				<tr><th>
+					<button class='ui yellow button' onclick="lightsToggle(ajax_token);"><i id="btn_lights" class="lightbulb icon"></i> light</button>
+				</th><th>
+					<button class='ui red icon button'><i class="bullhorn icon"></i> HORN</button>
+				</th><th>
+					<button class='ui blue icon button'><i class="bell icon"></i> bell</button>
+				</th>
+				</tr>
+				</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='robot.min.js') }}"></script>
+<script src="{{ url_for('static', filename='semantic/semantic.min.js') }}"></script>
+<style>
+table {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
+</html>
